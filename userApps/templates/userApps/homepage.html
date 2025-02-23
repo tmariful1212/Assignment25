@@ -53,7 +53,7 @@
                 <option value="images">With Images</option>
                 <option value="text">Text Only</option>
             </select>
-            <input type="text" name="author" placeholder="Filter by userName">
+            <input type="text" name="author" placeholder="Filter by Full Name">
             <input type="text" name="q" placeholder="Search posts by title">
             <button type="submit">Apply</button>
         </form>
@@ -78,11 +78,13 @@
                   <h1 class="card-title text-2xl font-bold text-gray-900"> {{post.title}}</h1>
                   <p class="card-subtitle mb-2 text-muted">{{post.created_at}}</p><br>
                   <p class="card-text">{{post.description}}</p>
+                  {% if post.image %}
                   <div class="relative overflow-hidden">
                     <img src="{{post.image.url}}" alt="Post Title"
                         class=" object-cover transform group-hover:scale-105 transition-transform duration-300 rounded" style="height:100px", "width:100px">
                             
                 </div> 
+                {% endif %}
                </div>
             </div>
             {% empty %}

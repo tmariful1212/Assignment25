@@ -16,6 +16,6 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', null= True, blank=True)
     userName = models.ForeignKey(UserInformation, on_delete=models.CASCADE, related_name='infos', null= True, blank=True)
-    image= models.ImageField(upload_to= userApps_media_path, default=None, null=True)
+    image= models.ImageField(upload_to= userApps_media_path, default=None, null=True, blank=True)
     def __str__(self):
         return self.title
