@@ -41,7 +41,22 @@
 
 <div class="mb-6 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-gray-900 mx-auto">Posts</h1>
-    <div class="space-x-4">
+    <div class="space-x-4 d-flex justify-content-between">
+        <form method="get">
+            <select name="date">
+                <option value="">Sort by Date</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+            </select>
+            <select name="media">
+                <option value="">Filter by Media Type</option>
+                <option value="images">With Images</option>
+                <option value="text">Text Only</option>
+            </select>
+            <input type="text" name="author" placeholder="Filter by userName">
+            <input type="text" name="q" placeholder="Search posts by title">
+            <button type="submit">Apply</button>
+        </form>
         <a href="{% url 'createPost' %}" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Create Post</a>
         {% comment %} <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Create Task</a> {% endcomment %}
         
