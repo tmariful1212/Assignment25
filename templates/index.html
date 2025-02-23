@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+    <!-- Main Content Wrapper -->
+    
+    {% block categoryName %} Categories  {% endblock categoryName %}
+    
+        {% block Category %}  
+           <a href="{% url 'teacher_home'%}" class="text-white hover:text-purple-200 transition-colors"><button
+                class="px-4 py-2 rounded-xl bg-purple-600 text-white shadow-lg shadow-purple-200 transition-all text-sm sm:text-base whitespace-nowrap" >
+                Instructor  </button> 
+            </a>
+
+            <a href="{% url 'student_home'%}" class="text-white hover:text-purple-200 transition-colors"> <button
+                class="px-4 py-2 rounded-xl bg-purple-600 text-white shadow-lg shadow-purple-200 transition-all text-sm sm:text-base whitespace-nowrap" >
+                    Student </button>
+            </a>
+{% endblock Category %}
+                        
+{% block mainContent %}             
+
+<div class= "d-flex flex-wrap justify-content-between container">
+    {% for teacher in teachers%}
+          <article
+                class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                         <img src="{{teacher.image.url}}" alt=" {{teacher.fullName}}"
+                                 class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute top-4 left-4">
+                                    <span
+                                        class="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg text-purple-600 text-sm font-semibold">
+                                        Instructor
+                                    </span>
+                                </div>
+                    </div>
+            <div class="p-6">
+                <h3
+                    class="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors">
+                    Name: {{teacher.fullName}}
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    Mobile: {{teacher.mobileNumber}}
+                </p>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    Email: {{teacher.email}}
+                </p>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                    Course: {{teacher.email}}
+                </p>
+                <div class="flex items-center ">
+                    
+                        <a href="{% url 'teacher_home' %}" class="btn btn-primary ml-auto px-4"> More </a>
+                        
+                 
+                </div>
+                   
+            </div>
+        </article>`;
+    {% endfor%}
+</div>
+
+<div class= "d-flex py-10 flex-wrap justify-content-between container">
+    {% for student in students %}
+    <article
+        class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all overflow-hidden group">
+         <div class="relative overflow-hidden">
+        <img src="{{student.image.url}}" alt=" {{student.fullName}}"
+            class="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute top-4 left-4">
+            <span
+                class="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg text-purple-600 text-sm font-semibold">
+                Student
+            </span>
+        </div>
+    </div>
+    <div class="p-6">
+        <h3
+            class="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors">
+            Name: {{student.fullName}}
+        </h3>
+        <p class="text-gray-600 mb-4 line-clamp-2">
+            Mobile: {{student.mobileNumber}}
+        </p>
+        <p class="text-gray-600 mb-4 line-clamp-2">
+            Email: {{student.email}}
+        </p>
+        <p class="text-gray-600 mb-4 line-clamp-2">
+            Course: {{student.course}}
+        </p>
+        <div class="flex items-center ">
+            
+                <a href="{% url 'student_home'  %}" class="btn btn-primary ml-auto px-4"> More </a>
+                
+         
+        </div>
+           
+    </div>
+</article>
+
+{% endfor %}
+</div>
+    {% endblock%}
+    {% block welcome %}
+Learning Mastermind
+            {% endblock %}

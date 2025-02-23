@@ -1,0 +1,13 @@
+<div class="container mx-auto px-4">
+    <nav class="flex justify-between items-center py-4">
+
+        <a href="#" class="text-white text-2xl font-bold">Social Media</a>
+        <ul class="flex gap-6">
+            {% block nav%}
+            <li><a href="{% url 'login' %}" class="text-white hover:text-purple-200 transition-colors">Log in</a></li>
+            <li><a href="{% url 'signup' %}" class="text-white hover:text-purple-200 transition-colors">Sign Up</a></li>
+            
+            {% endblock nav%}
+        </ul>
+    </nav>
+</div>

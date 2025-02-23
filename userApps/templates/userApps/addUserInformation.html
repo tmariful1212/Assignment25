@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block mainContent %}
+
+   {% if update %}
+   <h1> Update User  </h1>
+   {% else %}
+   <h1> Create User </h1>
+   {% endif %}
+
+<form class="container mx-auto px-4 py-16"  method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+     {{form|crispy}}
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+{% endblock mainContent %}
+
+{% block nav%}
+<li><a href="{% url 'homepage' %}" class="text-white hover:text-purple-200 transition-colors">Home</a></li>
+<li><a href="{% url 'profile' %}" class="text-white hover:text-purple-200 transition-colors">{{user}}</a></li>
+<li><a href="{% url 'logout' %}" class="text-white hover:text-purple-200 transition-colors">logout</a></li>
+{% endblock nav%}
+
+{% block heroSection %}
+<div class="absolute inset-0 overflow-hidden">
+    <div
+        class="absolute -right-8 -bottom-8 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob">
+    </div>
+    <div
+        class="absolute -bottom-8 -left-8 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/5"></div>
+</div>
+
+<!-- Content -->
+
+<div class="container mx-auto px-4 pb-25 mb-20  mt-10 relative">
+
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-7xl font-bold mb-6 text-white leading-tight">
+            Welcome to <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-blue-200">{% block welcome %}Social Media {% endblock welcome %}</span>
+        </h1>
+        
+        
+    </div>
+</div>
+{% endblock heroSection%}
